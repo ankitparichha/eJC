@@ -1,0 +1,586 @@
+
+<!-- Working -->
+<script type="text/javascript" src="/Sites/EWJC/SiteAssets/MicrosoftAjax.js"></script>
+<script type="text/javascript" src="/Sites/EWJC/SiteAssets/jquery.min.js"></script>
+<script type="text/javascript" src="/Sites/EWJC/SiteAssets/jquery-ui.js"></script>
+<!--<script src="/ajax/libs/jquery.SPServices/2014.02/jquery.SPServices-2014.02.min.js"></script>-->
+<script type="text/javascript" src="/Sites/EWJC/SiteAssets/jquery.SPServices-2014.02.min.js"></script>
+<script type="text/javascript" src="/Sites/EWJC/SiteAssets/NewJobCard.js"></script>
+<script type="text/javascript" src="/Sites/EWJC/SiteAssets/Validation.js"></script>
+<link href="/Sites/EWJC/SiteAssets/NewJobCard.css" rel="stylesheet">
+<script type="text/javascript" src="/Sites/EWJC/SiteAssets/CheckGroupAndLoadData.js"></script>
+<!--<script src="/Sites/EWJC/SiteAssets/CheckIfBoschDealer.js"></script>-->
+<script type="text/javascript" src="/Sites/EWJC/SiteAssets/UploadFile.js"></script>
+<!-- Javascript -->
+<div id="load">
+</div>
+<div id="NewJobCardDiv" style="display: inline-block !important">
+    <table id="tblOEDealer" style="display: inline-block !important">
+        <tr>
+            <td>
+                <table class="innertable">
+                    <tr>
+                        <td>
+                            Job Card
+                            <br />
+                            Choose Appropriate
+                            <td>
+                                <div id="divWarranty">
+                                    Warranty
+                                    <input type="radio" name="isWarranty" value="1" required />
+                                    Post Warranty
+                                    <input type="radio" name="isWarranty" value="0" required />
+                                    <span class="asterisk">* </span>
+                                </div>
+                            </td>
+                            <td>
+                                Product
+                            </td>
+                            <td>
+                                <select name="ddlProductType" id="ddlProductType">
+                                    <option selected value="0">Select</option>
+                                </select>
+                                <span class="asterisk">* </span>
+                            </td>
+                        </td>
+                    </tr>
+                    <!--<tr>
+                        <td>
+                            Service Partner Code
+                        </td>
+                        <td>
+                            <input type="text" name="" value="" id="txtServicePartnerCode">
+                            <span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            Job Card Reference
+                        </td>
+                        <td>
+                            <input type="text" name="" value="" id="txtReferenceNumber" disabled="true">
+                        </td>
+                    </tr> -->
+                    <tr>
+                        <td>
+                            Reported Date and Time
+                        </td>
+                        <td>
+                            <div>
+                                <input type="text" id="txtReportDate" class="datepickerclass" placeholder="DD/MM/YYYY"
+                                    maxlength="10" minlength="10"/>
+                                <select id="ddlReportTime" class="timepickerclass">
+                                    <option value="99">Select</option>
+                                    <option value="0">0:00</option>
+                                    <option value="1">0:30</option>
+                                    <option value="2">1:00</option>
+                                    <option value="3">1:30</option>
+                                    <option value="4">2:00</option>
+                                    <option value="5">2:30</option>
+                                    <option value="6">3:00</option>
+                                    <option value="7">3:30</option>
+                                    <option value="8">4:00</option>
+                                    <option value="9">4:30</option>
+                                    <option value="10">5:00</option>
+                                    <option value="11">5:30</option>
+                                    <option value="12">6:00</option>
+                                    <option value="13">6:30</option>
+                                    <option value="14">7:00</option>
+                                    <option value="15">7:30</option>
+                                    <option value="16">8:00</option>
+                                    <option value="17">8:30</option>
+                                    <option value="18">9:00</option>
+                                    <option value="19">9:30</option>
+                                    <option value="20">10:00</option>
+                                    <option value="21">10:30</option>
+                                    <option value="22">11:00</option>
+                                    <option value="23">11:30</option>
+                                    <option value="24">12:00</option>
+                                    <option value="25">12:30</option>
+                                    <option value="26">13:00</option>
+                                    <option value="27">13:30</option>
+                                    <option value="28">14:00</option>
+                                    <option value="29">14:30</option>
+                                    <option value="30">15:00</option>
+                                    <option value="31">15:30</option>
+                                    <option value="32">16:00</option>
+                                    <option value="33">16:30</option>
+                                    <option value="34">17:00</option>
+                                    <option value="35">17:30</option>
+                                    <option value="36">18:00</option>
+                                    <option value="37">18:30</option>
+                                    <option value="38">19:00</option>
+                                    <option value="39">19:30</option>
+                                    <option value="40">20:00</option>
+                                    <option value="41">20:30</option>
+                                    <option value="42">21:00</option>
+                                    <option value="43">21:30</option>
+                                    <option value="44">22:00</option>
+                                    <option value="45">22:30</option>
+                                    <option value="46">23:00</option>
+                                    <option value="47">23:30</option>
+                                </select>
+                                <span class="asterisk" id="mandateBatterySymbol">* </span>
+                            </div>
+                        </td>
+                        <td>
+                            Date of Sale and Time
+                        </td>
+                        <td>
+                            <input type="text" id="txtSaleDate" class="datepickerclass" placeholder="DD/MM/YYYY"
+                                maxlength="10" minlength="10"/>
+                            <select id="ddlSaleTime" class="timepickerclass">
+                                <option value="99">Select</option>
+                                <option value="0">0:00</option>
+                                <option value="1">0:30</option>
+                                <option value="2">1:00</option>
+                                <option value="3">1:30</option>
+                                <option value="4">2:00</option>
+                                <option value="5">2:30</option>
+                                <option value="6">3:00</option>
+                                <option value="7">3:30</option>
+                                <option value="8">4:00</option>
+                                <option value="9">4:30</option>
+                                <option value="10">5:00</option>
+                                <option value="11">5:30</option>
+                                <option value="12">6:00</option>
+                                <option value="13">6:30</option>
+                                <option value="14">7:00</option>
+                                <option value="15">7:30</option>
+                                <option value="16">8:00</option>
+                                <option value="17">8:30</option>
+                                <option value="18">9:00</option>
+                                <option value="19">9:30</option>
+                                <option value="20">10:00</option>
+                                <option value="21">10:30</option>
+                                <option value="22">11:00</option>
+                                <option value="23">11:30</option>
+                                <option value="24">12:00</option>
+                                <option value="25">12:30</option>
+                                <option value="26">13:00</option>
+                                <option value="27">13:30</option>
+                                <option value="28">14:00</option>
+                                <option value="29">14:30</option>
+                                <option value="30">15:00</option>
+                                <option value="31">15:30</option>
+                                <option value="32">16:00</option>
+                                <option value="33">16:30</option>
+                                <option value="34">17:00</option>
+                                <option value="35">17:30</option>
+                                <option value="36">18:00</option>
+                                <option value="37">18:30</option>
+                                <option value="38">19:00</option>
+                                <option value="39">19:30</option>
+                                <option value="40">20:00</option>
+                                <option value="41">20:30</option>
+                                <option value="42">21:00</option>
+                                <option value="43">21:30</option>
+                                <option value="44">22:00</option>
+                                <option value="45">22:30</option>
+                                <option value="46">23:00</option>
+                                <option value="47">23:30</option>
+                            </select>
+                            <span class="asterisk" id="mandateBatterySymbol">* </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Date of Complaint and Time
+                        </td>
+                        <td>
+                            <input type="text" id="txtComplaintDate" class="datepickerclass" placeholder="DD/MM/YYYY"
+                                maxlength="10" minlength="10"/>
+                            <select id="ddlComplaintTime" class="timepickerclass">
+                                <option value="99">Select</option>
+                                <option value="0">0:00</option>
+                                <option value="1">0:30</option>
+                                <option value="2">1:00</option>
+                                <option value="3">1:30</option>
+                                <option value="4">2:00</option>
+                                <option value="5">2:30</option>
+                                <option value="6">3:00</option>
+                                <option value="7">3:30</option>
+                                <option value="8">4:00</option>
+                                <option value="9">4:30</option>
+                                <option value="10">5:00</option>
+                                <option value="11">5:30</option>
+                                <option value="12">6:00</option>
+                                <option value="13">6:30</option>
+                                <option value="14">7:00</option>
+                                <option value="15">7:30</option>
+                                <option value="16">8:00</option>
+                                <option value="17">8:30</option>
+                                <option value="18">9:00</option>
+                                <option value="19">9:30</option>
+                                <option value="20">10:00</option>
+                                <option value="21">10:30</option>
+                                <option value="22">11:00</option>
+                                <option value="23">11:30</option>
+                                <option value="24">12:00</option>
+                                <option value="25">12:30</option>
+                                <option value="26">13:00</option>
+                                <option value="27">13:30</option>
+                                <option value="28">14:00</option>
+                                <option value="29">14:30</option>
+                                <option value="30">15:00</option>
+                                <option value="31">15:30</option>
+                                <option value="32">16:00</option>
+                                <option value="33">16:30</option>
+                                <option value="34">17:00</option>
+                                <option value="35">17:30</option>
+                                <option value="36">18:00</option>
+                                <option value="37">18:30</option>
+                                <option value="38">19:00</option>
+                                <option value="39">19:30</option>
+                                <option value="40">20:00</option>
+                                <option value="41">20:30</option>
+                                <option value="42">21:00</option>
+                                <option value="43">21:30</option>
+                                <option value="44">22:00</option>
+                                <option value="45">22:30</option>
+                                <option value="46">23:00</option>
+                                <option value="47">23:30</option>
+                            </select>
+                            <span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            <label id="lblRepairEndDate">
+                                Repair End Date and Time</label>
+                        </td>
+                        <td id="tdRepairEndDate">
+                            <input type="text" id="txtRepairEndDate" class="datepickerclass" placeholder="DD/MM/YYYY"
+                                maxlength="10" minlength="10"/>
+                            <select id="ddlRepairTime" class="timepickerclass">
+                                <option value="99">Select</option>
+                                <option value="0">0:00</option>
+                                <option value="1">0:30</option>
+                                <option value="2">1:00</option>
+                                <option value="3">1:30</option>
+                                <option value="4">2:00</option>
+                                <option value="5">2:30</option>
+                                <option value="6">3:00</option>
+                                <option value="7">3:30</option>
+                                <option value="8">4:00</option>
+                                <option value="9">4:30</option>
+                                <option value="10">5:00</option>
+                                <option value="11">5:30</option>
+                                <option value="12">6:00</option>
+                                <option value="13">6:30</option>
+                                <option value="14">7:00</option>
+                                <option value="15">7:30</option>
+                                <option value="16">8:00</option>
+                                <option value="17">8:30</option>
+                                <option value="18">9:00</option>
+                                <option value="19">9:30</option>
+                                <option value="20">10:00</option>
+                                <option value="21">10:30</option>
+                                <option value="22">11:00</option>
+                                <option value="23">11:30</option>
+                                <option value="24">12:00</option>
+                                <option value="25">12:30</option>
+                                <option value="26">13:00</option>
+                                <option value="27">13:30</option>
+                                <option value="28">14:00</option>
+                                <option value="29">14:30</option>
+                                <option value="30">15:00</option>
+                                <option value="31">15:30</option>
+                                <option value="32">16:00</option>
+                                <option value="33">16:30</option>
+                                <option value="34">17:00</option>
+                                <option value="35">17:30</option>
+                                <option value="36">18:00</option>
+                                <option value="37">18:30</option>
+                                <option value="38">19:00</option>
+                                <option value="39">19:30</option>
+                                <option value="40">20:00</option>
+                                <option value="41">20:30</option>
+                                <option value="42">21:00</option>
+                                <option value="43">21:30</option>
+                                <option value="44">22:00</option>
+                                <option value="45">22:30</option>
+                                <option value="46">23:00</option>
+                                <option value="47">23:30</option>
+                            </select>
+                            <span class="asterisk" id="symbolRepairEndDate">* </span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <br />
+        <tr>
+            <br />
+            <td>
+                <br />
+                <table class="innertable">
+                    <div id="divOECDDetails" class="hideTD">
+                        <tr>
+                            <td colspan="4" class="hideTD">
+                                <h4>
+                                    OECD Dealer Details</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="lblOECDDetails" class="hideTD">
+                                OECD Ancillary Form Number
+                            </td>
+                            <td class="hideTD">
+                                OECD Name and Address
+                            </td>
+                            <td class="hideTD">
+                                OECD City
+                                <br />
+                            </td>
+                            <td class="hideTD">
+                                OECD Telephone Number
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="" value="" id="txtAuxiliaryFormNo" maxlength="25" placeholder="Ancillary Form No">
+                            </td>
+                            <td>
+                                <textarea name="txtAreaOECDNameAndAddress" placeholder="OECD Address" id="txtAreaOECDNameAndAddress"
+                                    onkeyup="resizeTextarea('txtAreaOECDNameAndAddress')" data-resizable="true" class="txtAreaInnerTable"></textarea>
+                            </td>
+                            <td>
+                                <input type="text" name="" value="" placeholder="OECD City" id="txtOECDCity" maxlength="25">
+                            </td>
+                            <td>
+                                <input type="text" name="" value="" placeholder="Telephone Number" id="txtOECDPhoneNumber"
+                                    maxlength="20" minlength="10">
+                            </td>
+                        </tr>
+                    </div>
+                    <tr>
+                        <td colspan="4">
+                            <h4>
+                                Customer Details</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            Customer Name and Details
+                        </td>
+                        <td>
+                            Customer City
+                        </td>
+                        <td>
+                            Customer Telephone Number
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <textarea name="txtAreaCustomerDetails" id="txtAreaCustomerDetails" placeholder="Customer Address"
+                                onkeyup="resizeTextarea('txtAreaCustomerDetails')" data-resizable="true" class="txtAreaInnerTable"></textarea><span
+                                    class="asterisk">* </span>
+                        </td>
+                        <td>
+                            <input type="text" name="txtCustomerCity" placeholder="Customer City" id="txtCustomerCity"
+                                maxlength="25"/><span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            <input type="text" name="txtCustomerPhoneNumber" placeholder="Telephone Number" id="txtCustomerPhoneNumber"
+                                maxlength="20" minlength="10"/><span class="asterisk">* </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <h4>
+                                Bosch Service Centre Details</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            State
+                        </td>
+                        <td>
+                            City
+                        </td>
+                        <td>
+                            Service Centre Name
+                        </td>
+                        <td>
+                            Service Centre Address
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="ddlState" id="ddlState">
+                                <option value="0" selected>Select</option>
+                            </select><span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            <select name="ddlServiceCenterCity" id="ddlServiceCenterCity">
+                                <option value="0" selected>Select</option>
+                            </select><span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            <select name="ddlServiceCenterName" id="ddlServiceCenterName">
+                                <option selected value="0">Service Centre Name</option>
+                            </select><span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            <textarea name="" rows="" cols="" placeholder="Address" id="txtAreaServiceCentreAddress"
+                                onkeyup="resizeTextarea('txtAreaServiceCentreAddress')" data-resizable="true"
+                                class="txtAreaInnerTable"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <br />
+        <tr>
+            <br />
+            <td>
+                <table class="innertable">
+                    <tr>
+                        <td>
+                            Vehicle Type
+                            <br />
+                            <select name="ddlVehicleType" id="ddlVehicleType" style="width: auto">
+                                <option value="0" selected>Select</option>
+                            </select>
+                            <span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            Vehicle Make<br />
+                            <select name="ddlVehicleMake" id="ddlVehicleMake" style="width: 129px">
+                                <option value="0" selected>Select</option>
+                            </select>
+                            <span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            Vehicle Model<br />
+                            <input type="text" name="" value="" placeholder="Vehicle Model" id="txtVehicleModel"
+                                maxlength="25" minlength="5"/>
+                            <span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            Vehicle RegNo<br />
+                            <input type="text" name="" value="" placeholder="Vehicle RegNo" id="txtVehicleRegNo"
+                                maxlength="25" minlength="5"/>
+                            <span class="asterisk">* </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Engine Number
+                            <br/>
+                            <input type="text" name="" value="" placeholder="Engine Number" id="txtEngineNumber"
+                                maxlength="25" minlength="5"/>
+                            <span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            VIN/Chassis Number
+                            <br/>
+                            <input type="text" name="" value="" placeholder="VIN/Chassis Number" id="txtVINChassisNumber"
+                                maxlength="25" minlength="5"/>
+                            <span class="asterisk">* </span>
+                        </td>
+                        <td colspan="2">
+                            <fieldset class="classHrsOrKms">
+                                <legend>Select KMs or HRs Covered</legend>
+                                <div class="kmsCoveredDiv">
+                                    KMS Covered<br/>
+                                    <input type="text" minlength="1" maxlength="25" id="txtKMSCovered" placeholder="KMS Covered"
+                                        value="" name=""/>
+                                </div>
+                                <div class="hrsCoveredDiv">
+                                    Hrs Covered<br/>
+                                    <input type="text" minlength="1" maxlength="25" id="txtHrsCovered" placeholder="Hrs Covered"
+                                        value="" name=""/>
+                                </div>
+                            </fieldset>
+                            <span class="asterisk" id="hrsOrKmsBothNotFilled">* </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Product Part Number
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" name="" value="" placeholder="Product Part Number" id="txtProductPartNumber"/>
+                            <span class="asterisk">* </span>
+                        </td>
+                        <td>
+                            <td>
+                            </td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Customer Complaint</label><br />
+                            <select name="CustomerComplaint" id="ddlCustomerComplaint">
+                                <option selected value="0">Select</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <label>
+                                Complaint Description</label><br />
+                            <textarea name="" rows="" cols="" placeholder="Complaint Description" id="txtAreaCustomerComplaintDesc"
+                                onkeyup="resizeTextarea('txtAreaCustomerComplaintDesc')" data-resizable="true"
+                                class="txtAreaInnerTable" style="width: 415px !important; max-width: 415px !important"></textarea>
+                        </td>
+                        <td>
+                            Entry Date
+                            <br/>
+                            <input type="text" name="" value="" id="txtEntryDate" placeholder="DD/MM/YYYY" maxlength="25"
+                                disabled="true" readonly="true"/><img src="/Sites/EWJC/SiteAssets/Images/icons/Calendar.png"
+                                    alt="Today Date" title="Today Date" style="position: relative; top: 4px;"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Upload a File
+                        </td>
+                        <td>
+                            <div id="wrapper">
+                                <input id="fileUpload" multiple="multiple" type="file" /><span class="asterisk"> *Files
+                                    must be maximum of 100MB </span>
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div id="image-holder">
+                            </div>
+                        </td>
+                    </tr>
+                    <br />
+                </table>
+            </td>
+        </tr>
+        <br />
+        <br />
+        <br />
+        <tr>
+            <td>
+                <table style="height: 15px; width: 950px">
+                    <tr>
+                        <td>
+                            <input type="button" name="btnCancel" id="btnCancel" value="Cancel" style="width: 110px"
+                                onclick="btnCancelClick();" />
+                        </td>
+                        <td>
+                            <input type="button" name="btnReset" value="Reset" id="btnReset" style="width: 110px"
+                                onclick="btnResetClick();" />
+                        </td>
+                        <td>
+                            &nbsp;<input type="button" name="btnSave" value="Save" id="btnSave" style="width: 110px"
+                                onclick="btnSaveClick();" />
+                        </td>
+                        <td>
+                            &nbsp;<input type="button" name="btnSubmit" value="Submit" id="btnSubmit" style="width: 110px"
+                                onclick="btnSubmitClick();" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
